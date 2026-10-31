@@ -76,6 +76,9 @@ c.hat('event_whenflagclicked',{},[
   iff(not(eq(length('cells'),N)),[c.call('载入图案',1)]),broadcast('建格子'),wait(0),...render(),set('忙碌',0),
   forever([
     iff(and(eq(V('忙碌'),0),eq(V('视图'),0)),[
+      iff(and(gt(V('清空时刻'),-1),gt(sub(expr('sensing_timer'),V('清空时刻')),3)),[
+        set('忙碌',1),set('清空时刻',-10),broadcast('重绘'),set('忙碌',0)
+      ]),
       iff(expr('sensing_mousedown'),[
         iff(mouseInside,[
           set('格',add(add(math('floor',div(add(expr('sensing_mousex'),112),16)),mul(math('floor',div(sub(96,expr('sensing_mousey')),16)),20)),1)),

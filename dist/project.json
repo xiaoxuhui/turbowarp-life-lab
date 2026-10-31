@@ -8653,7 +8653,7 @@
         },
         "life_436": {
           "opcode": "control_if",
-          "next": "life_519",
+          "next": "life_531",
           "parent": "life_435",
           "inputs": {
             "CONDITION": [
@@ -8758,8 +8758,8 @@
           "topLevel": false
         },
         "life_442": {
-          "opcode": "control_if_else",
-          "next": "life_499",
+          "opcode": "control_if",
+          "next": "life_454",
           "parent": "life_436",
           "inputs": {
             "CONDITION": [
@@ -8768,11 +8768,7 @@
             ],
             "SUBSTACK": [
               2,
-              "life_444"
-            ],
-            "SUBSTACK2": [
-              2,
-              "life_497"
+              "life_450"
             ]
           },
           "fields": {},
@@ -8780,26 +8776,38 @@
           "topLevel": false
         },
         "life_443": {
-          "opcode": "sensing_mousedown",
+          "opcode": "operator_and",
           "next": null,
           "parent": "life_442",
-          "inputs": {},
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_444"
+            ],
+            "OPERAND2": [
+              2,
+              "life_446"
+            ]
+          },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
         "life_444": {
-          "opcode": "control_if",
+          "opcode": "operator_gt",
           "next": null,
-          "parent": "life_442",
+          "parent": "life_443",
           "inputs": {
-            "CONDITION": [
+            "OPERAND1": [
               2,
               "life_445"
             ],
-            "SUBSTACK": [
-              2,
-              "life_456"
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "-1"
+              ]
             ]
           },
           "fields": {},
@@ -8807,33 +8815,50 @@
           "topLevel": false
         },
         "life_445": {
-          "opcode": "operator_and",
+          "opcode": "data_variable",
           "next": null,
           "parent": "life_444",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_446"
-            ],
-            "OPERAND2": [
-              2,
-              "life_451"
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "清空时刻",
+              "v_清空时刻"
             ]
           },
-          "fields": {},
           "shadow": false,
           "topLevel": false
         },
         "life_446": {
-          "opcode": "operator_and",
+          "opcode": "operator_gt",
           "next": null,
-          "parent": "life_445",
+          "parent": "life_443",
           "inputs": {
             "OPERAND1": [
               2,
               "life_447"
             ],
             "OPERAND2": [
+              1,
+              [
+                4,
+                "3"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_447": {
+          "opcode": "operator_subtract",
+          "next": null,
+          "parent": "life_446",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_448"
+            ],
+            "NUM2": [
               2,
               "life_449"
             ]
@@ -8842,29 +8867,8 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_447": {
-          "opcode": "operator_gt",
-          "next": null,
-          "parent": "life_446",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_448"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "-112"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
         "life_448": {
-          "opcode": "sensing_mousex",
+          "opcode": "sensing_timer",
           "next": null,
           "parent": "life_447",
           "inputs": {},
@@ -8873,605 +8877,23 @@
           "topLevel": false
         },
         "life_449": {
-          "opcode": "operator_gt",
+          "opcode": "data_variable",
           "next": null,
-          "parent": "life_446",
-          "inputs": {
-            "OPERAND1": [
-              1,
-              [
-                4,
-                "208"
-              ]
-            ],
-            "OPERAND2": [
-              2,
-              "life_450"
+          "parent": "life_447",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "清空时刻",
+              "v_清空时刻"
             ]
           },
-          "fields": {},
           "shadow": false,
           "topLevel": false
         },
         "life_450": {
-          "opcode": "sensing_mousex",
-          "next": null,
-          "parent": "life_449",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_451": {
-          "opcode": "operator_and",
-          "next": null,
-          "parent": "life_445",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_452"
-            ],
-            "OPERAND2": [
-              2,
-              "life_454"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_452": {
-          "opcode": "operator_gt",
-          "next": null,
-          "parent": "life_451",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_453"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "-128"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_453": {
-          "opcode": "sensing_mousey",
-          "next": null,
-          "parent": "life_452",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_454": {
-          "opcode": "operator_gt",
-          "next": null,
-          "parent": "life_451",
-          "inputs": {
-            "OPERAND1": [
-              1,
-              [
-                4,
-                "96"
-              ]
-            ],
-            "OPERAND2": [
-              2,
-              "life_455"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_455": {
-          "opcode": "sensing_mousey",
-          "next": null,
-          "parent": "life_454",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_456": {
           "opcode": "data_setvariableto",
-          "next": "life_468",
-          "parent": "life_444",
-          "inputs": {
-            "VALUE": [
-              2,
-              "life_457"
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "格",
-              "v_格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_457": {
-          "opcode": "operator_add",
-          "next": null,
-          "parent": "life_456",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_458"
-            ],
-            "NUM2": [
-              1,
-              [
-                4,
-                "1"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_458": {
-          "opcode": "operator_add",
-          "next": null,
-          "parent": "life_457",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_459"
-            ],
-            "NUM2": [
-              2,
-              "life_463"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_459": {
-          "opcode": "operator_mathop",
-          "next": null,
-          "parent": "life_458",
-          "inputs": {
-            "NUM": [
-              2,
-              "life_460"
-            ]
-          },
-          "fields": {
-            "OPERATOR": [
-              "floor",
-              null
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_460": {
-          "opcode": "operator_divide",
-          "next": null,
-          "parent": "life_459",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_461"
-            ],
-            "NUM2": [
-              1,
-              [
-                4,
-                "16"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_461": {
-          "opcode": "operator_add",
-          "next": null,
-          "parent": "life_460",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_462"
-            ],
-            "NUM2": [
-              1,
-              [
-                4,
-                "112"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_462": {
-          "opcode": "sensing_mousex",
-          "next": null,
-          "parent": "life_461",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_463": {
-          "opcode": "operator_multiply",
-          "next": null,
-          "parent": "life_458",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_464"
-            ],
-            "NUM2": [
-              1,
-              [
-                4,
-                "20"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_464": {
-          "opcode": "operator_mathop",
-          "next": null,
-          "parent": "life_463",
-          "inputs": {
-            "NUM": [
-              2,
-              "life_465"
-            ]
-          },
-          "fields": {
-            "OPERATOR": [
-              "floor",
-              null
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_465": {
-          "opcode": "operator_divide",
-          "next": null,
-          "parent": "life_464",
-          "inputs": {
-            "NUM1": [
-              2,
-              "life_466"
-            ],
-            "NUM2": [
-              1,
-              [
-                4,
-                "16"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_466": {
-          "opcode": "operator_subtract",
-          "next": null,
-          "parent": "life_465",
-          "inputs": {
-            "NUM1": [
-              1,
-              [
-                4,
-                "96"
-              ]
-            ],
-            "NUM2": [
-              2,
-              "life_467"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_467": {
-          "opcode": "sensing_mousey",
-          "next": null,
-          "parent": "life_466",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_468": {
-          "opcode": "control_if",
-          "next": "life_478",
-          "parent": "life_456",
-          "inputs": {
-            "CONDITION": [
-              2,
-              "life_469"
-            ],
-            "SUBSTACK": [
-              2,
-              "life_471"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_469": {
-          "opcode": "operator_equals",
-          "next": null,
-          "parent": "life_468",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_470"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_470": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_469",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "拖画",
-              "v_拖画"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_471": {
-          "opcode": "data_setvariableto",
-          "next": "life_472",
-          "parent": "life_468",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "1"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "笔值",
-              "v_笔值"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_472": {
-          "opcode": "control_if",
-          "next": "life_477",
-          "parent": "life_471",
-          "inputs": {
-            "CONDITION": [
-              2,
-              "life_473"
-            ],
-            "SUBSTACK": [
-              2,
-              "life_476"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_473": {
-          "opcode": "operator_gt",
-          "next": null,
-          "parent": "life_472",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_474"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_474": {
-          "opcode": "data_itemoflist",
-          "next": null,
-          "parent": "life_473",
-          "inputs": {
-            "INDEX": [
-              2,
-              "life_475"
-            ]
-          },
-          "fields": {
-            "LIST": [
-              "cells",
-              "l_cells"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_475": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_474",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "格",
-              "v_格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_476": {
-          "opcode": "data_setvariableto",
-          "next": null,
-          "parent": "life_472",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "笔值",
-              "v_笔值"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_477": {
-          "opcode": "data_setvariableto",
-          "next": null,
-          "parent": "life_472",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "1"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "拖画",
-              "v_拖画"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_478": {
-          "opcode": "control_if",
-          "next": null,
-          "parent": "life_468",
-          "inputs": {
-            "CONDITION": [
-              2,
-              "life_479"
-            ],
-            "SUBSTACK": [
-              2,
-              "life_483"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_479": {
-          "opcode": "operator_not",
-          "next": null,
-          "parent": "life_478",
-          "inputs": {
-            "OPERAND": [
-              2,
-              "life_480"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_480": {
-          "opcode": "operator_equals",
-          "next": null,
-          "parent": "life_479",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_481"
-            ],
-            "OPERAND2": [
-              2,
-              "life_482"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_481": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_480",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "格",
-              "v_格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_482": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_480",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "上格",
-              "v_上格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_483": {
-          "opcode": "data_setvariableto",
-          "next": "life_484",
-          "parent": "life_478",
+          "next": "life_451",
+          "parent": "life_442",
           "inputs": {
             "VALUE": [
               1,
@@ -9490,54 +8912,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_484": {
+        "life_451": {
           "opcode": "data_setvariableto",
-          "next": "life_485",
-          "parent": "life_483",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "运行",
-              "v_运行"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_485": {
-          "opcode": "data_setvariableto",
-          "next": "life_486",
-          "parent": "life_484",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "代数",
-              "v_代数"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_486": {
-          "opcode": "data_setvariableto",
-          "next": "life_487",
-          "parent": "life_485",
+          "next": "life_452",
+          "parent": "life_450",
           "inputs": {
             "VALUE": [
               1,
@@ -9556,142 +8934,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_487": {
-          "opcode": "data_replaceitemoflist",
-          "next": "life_490",
-          "parent": "life_486",
-          "inputs": {
-            "INDEX": [
-              2,
-              "life_488"
-            ],
-            "ITEM": [
-              2,
-              "life_489"
-            ]
-          },
-          "fields": {
-            "LIST": [
-              "cells",
-              "l_cells"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_488": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_487",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "格",
-              "v_格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_489": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_487",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "笔值",
-              "v_笔值"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_490": {
-          "opcode": "data_setvariableto",
-          "next": "life_492",
-          "parent": "life_487",
-          "inputs": {
-            "VALUE": [
-              2,
-              "life_491"
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "上格",
-              "v_上格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_491": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_490",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "格",
-              "v_格"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_492": {
-          "opcode": "procedures_call",
-          "next": "life_493",
-          "parent": "life_490",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false,
-          "mutation": {
-            "tagName": "mutation",
-            "children": [],
-            "proccode": "统计细胞",
-            "argumentids": "[]",
-            "warp": "true"
-          }
-        },
-        "life_493": {
-          "opcode": "procedures_call",
-          "next": "life_494",
-          "parent": "life_492",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false,
-          "mutation": {
-            "tagName": "mutation",
-            "children": [],
-            "proccode": "更新规则文本",
-            "argumentids": "[]",
-            "warp": "true"
-          }
-        },
-        "life_494": {
-          "opcode": "procedures_call",
-          "next": "life_495",
-          "parent": "life_493",
-          "inputs": {},
-          "fields": {},
-          "shadow": false,
-          "topLevel": false,
-          "mutation": {
-            "tagName": "mutation",
-            "children": [],
-            "proccode": "显示面板",
-            "argumentids": "[]",
-            "warp": "true"
-          }
-        },
-        "life_495": {
+        "life_452": {
           "opcode": "event_broadcastandwait",
-          "next": "life_496",
-          "parent": "life_494",
+          "next": "life_453",
+          "parent": "life_451",
           "inputs": {
             "BROADCAST_INPUT": [
               1,
@@ -9706,10 +8952,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_496": {
+        "life_453": {
           "opcode": "data_setvariableto",
           "next": null,
-          "parent": "life_495",
+          "parent": "life_452",
           "inputs": {
             "VALUE": [
               1,
@@ -9728,10 +8974,981 @@
           "shadow": false,
           "topLevel": false
         },
+        "life_454": {
+          "opcode": "control_if_else",
+          "next": "life_511",
+          "parent": "life_442",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_455"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_456"
+            ],
+            "SUBSTACK2": [
+              2,
+              "life_509"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_455": {
+          "opcode": "sensing_mousedown",
+          "next": null,
+          "parent": "life_454",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_456": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "life_454",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_457"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_468"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_457": {
+          "opcode": "operator_and",
+          "next": null,
+          "parent": "life_456",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_458"
+            ],
+            "OPERAND2": [
+              2,
+              "life_463"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_458": {
+          "opcode": "operator_and",
+          "next": null,
+          "parent": "life_457",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_459"
+            ],
+            "OPERAND2": [
+              2,
+              "life_461"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_459": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "life_458",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_460"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "-112"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_460": {
+          "opcode": "sensing_mousex",
+          "next": null,
+          "parent": "life_459",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_461": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "life_458",
+          "inputs": {
+            "OPERAND1": [
+              1,
+              [
+                4,
+                "208"
+              ]
+            ],
+            "OPERAND2": [
+              2,
+              "life_462"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_462": {
+          "opcode": "sensing_mousex",
+          "next": null,
+          "parent": "life_461",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_463": {
+          "opcode": "operator_and",
+          "next": null,
+          "parent": "life_457",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_464"
+            ],
+            "OPERAND2": [
+              2,
+              "life_466"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_464": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "life_463",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_465"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "-128"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_465": {
+          "opcode": "sensing_mousey",
+          "next": null,
+          "parent": "life_464",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_466": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "life_463",
+          "inputs": {
+            "OPERAND1": [
+              1,
+              [
+                4,
+                "96"
+              ]
+            ],
+            "OPERAND2": [
+              2,
+              "life_467"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_467": {
+          "opcode": "sensing_mousey",
+          "next": null,
+          "parent": "life_466",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_468": {
+          "opcode": "data_setvariableto",
+          "next": "life_480",
+          "parent": "life_456",
+          "inputs": {
+            "VALUE": [
+              2,
+              "life_469"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "格",
+              "v_格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_469": {
+          "opcode": "operator_add",
+          "next": null,
+          "parent": "life_468",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_470"
+            ],
+            "NUM2": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_470": {
+          "opcode": "operator_add",
+          "next": null,
+          "parent": "life_469",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_471"
+            ],
+            "NUM2": [
+              2,
+              "life_475"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_471": {
+          "opcode": "operator_mathop",
+          "next": null,
+          "parent": "life_470",
+          "inputs": {
+            "NUM": [
+              2,
+              "life_472"
+            ]
+          },
+          "fields": {
+            "OPERATOR": [
+              "floor",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_472": {
+          "opcode": "operator_divide",
+          "next": null,
+          "parent": "life_471",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_473"
+            ],
+            "NUM2": [
+              1,
+              [
+                4,
+                "16"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_473": {
+          "opcode": "operator_add",
+          "next": null,
+          "parent": "life_472",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_474"
+            ],
+            "NUM2": [
+              1,
+              [
+                4,
+                "112"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_474": {
+          "opcode": "sensing_mousex",
+          "next": null,
+          "parent": "life_473",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_475": {
+          "opcode": "operator_multiply",
+          "next": null,
+          "parent": "life_470",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_476"
+            ],
+            "NUM2": [
+              1,
+              [
+                4,
+                "20"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_476": {
+          "opcode": "operator_mathop",
+          "next": null,
+          "parent": "life_475",
+          "inputs": {
+            "NUM": [
+              2,
+              "life_477"
+            ]
+          },
+          "fields": {
+            "OPERATOR": [
+              "floor",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_477": {
+          "opcode": "operator_divide",
+          "next": null,
+          "parent": "life_476",
+          "inputs": {
+            "NUM1": [
+              2,
+              "life_478"
+            ],
+            "NUM2": [
+              1,
+              [
+                4,
+                "16"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_478": {
+          "opcode": "operator_subtract",
+          "next": null,
+          "parent": "life_477",
+          "inputs": {
+            "NUM1": [
+              1,
+              [
+                4,
+                "96"
+              ]
+            ],
+            "NUM2": [
+              2,
+              "life_479"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_479": {
+          "opcode": "sensing_mousey",
+          "next": null,
+          "parent": "life_478",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_480": {
+          "opcode": "control_if",
+          "next": "life_490",
+          "parent": "life_468",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_481"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_483"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_481": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "life_480",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_482"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_482": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_481",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "拖画",
+              "v_拖画"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_483": {
+          "opcode": "data_setvariableto",
+          "next": "life_484",
+          "parent": "life_480",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "笔值",
+              "v_笔值"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_484": {
+          "opcode": "control_if",
+          "next": "life_489",
+          "parent": "life_483",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_485"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_488"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_485": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "life_484",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_486"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_486": {
+          "opcode": "data_itemoflist",
+          "next": null,
+          "parent": "life_485",
+          "inputs": {
+            "INDEX": [
+              2,
+              "life_487"
+            ]
+          },
+          "fields": {
+            "LIST": [
+              "cells",
+              "l_cells"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_487": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_486",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "格",
+              "v_格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_488": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "life_484",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "笔值",
+              "v_笔值"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_489": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "life_484",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "拖画",
+              "v_拖画"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_490": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "life_480",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_491"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_495"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_491": {
+          "opcode": "operator_not",
+          "next": null,
+          "parent": "life_490",
+          "inputs": {
+            "OPERAND": [
+              2,
+              "life_492"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_492": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "life_491",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_493"
+            ],
+            "OPERAND2": [
+              2,
+              "life_494"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_493": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_492",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "格",
+              "v_格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_494": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_492",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "上格",
+              "v_上格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_495": {
+          "opcode": "data_setvariableto",
+          "next": "life_496",
+          "parent": "life_490",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "忙碌",
+              "v_忙碌"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_496": {
+          "opcode": "data_setvariableto",
+          "next": "life_497",
+          "parent": "life_495",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "运行",
+              "v_运行"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
         "life_497": {
           "opcode": "data_setvariableto",
           "next": "life_498",
-          "parent": "life_442",
+          "parent": "life_496",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "代数",
+              "v_代数"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_498": {
+          "opcode": "data_setvariableto",
+          "next": "life_499",
+          "parent": "life_497",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "-10"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "清空时刻",
+              "v_清空时刻"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_499": {
+          "opcode": "data_replaceitemoflist",
+          "next": "life_502",
+          "parent": "life_498",
+          "inputs": {
+            "INDEX": [
+              2,
+              "life_500"
+            ],
+            "ITEM": [
+              2,
+              "life_501"
+            ]
+          },
+          "fields": {
+            "LIST": [
+              "cells",
+              "l_cells"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_500": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_499",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "格",
+              "v_格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_501": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_499",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "笔值",
+              "v_笔值"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_502": {
+          "opcode": "data_setvariableto",
+          "next": "life_504",
+          "parent": "life_499",
+          "inputs": {
+            "VALUE": [
+              2,
+              "life_503"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "上格",
+              "v_上格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_503": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_502",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "格",
+              "v_格"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_504": {
+          "opcode": "procedures_call",
+          "next": "life_505",
+          "parent": "life_502",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "统计细胞",
+            "argumentids": "[]",
+            "warp": "true"
+          }
+        },
+        "life_505": {
+          "opcode": "procedures_call",
+          "next": "life_506",
+          "parent": "life_504",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "更新规则文本",
+            "argumentids": "[]",
+            "warp": "true"
+          }
+        },
+        "life_506": {
+          "opcode": "procedures_call",
+          "next": "life_507",
+          "parent": "life_505",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "mutation": {
+            "tagName": "mutation",
+            "children": [],
+            "proccode": "显示面板",
+            "argumentids": "[]",
+            "warp": "true"
+          }
+        },
+        "life_507": {
+          "opcode": "event_broadcastandwait",
+          "next": "life_508",
+          "parent": "life_506",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "重绘",
+                "msg_重绘"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_508": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "life_507",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "忙碌",
+              "v_忙碌"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_509": {
+          "opcode": "data_setvariableto",
+          "next": "life_510",
+          "parent": "life_454",
           "inputs": {
             "VALUE": [
               1,
@@ -9750,10 +9967,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_498": {
+        "life_510": {
           "opcode": "data_setvariableto",
           "next": null,
-          "parent": "life_497",
+          "parent": "life_509",
           "inputs": {
             "VALUE": [
               1,
@@ -9772,50 +9989,50 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_499": {
+        "life_511": {
           "opcode": "control_if",
           "next": null,
-          "parent": "life_442",
+          "parent": "life_454",
           "inputs": {
             "CONDITION": [
               2,
-              "life_500"
+              "life_512"
             ],
             "SUBSTACK": [
               2,
-              "life_510"
+              "life_522"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_500": {
+        "life_512": {
           "opcode": "operator_and",
           "next": null,
-          "parent": "life_499",
+          "parent": "life_511",
           "inputs": {
             "OPERAND1": [
               2,
-              "life_501"
+              "life_513"
             ],
             "OPERAND2": [
               2,
-              "life_503"
+              "life_515"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_501": {
+        "life_513": {
           "opcode": "operator_equals",
           "next": null,
-          "parent": "life_500",
+          "parent": "life_512",
           "inputs": {
             "OPERAND1": [
               2,
-              "life_502"
+              "life_514"
             ],
             "OPERAND2": [
               1,
@@ -9829,10 +10046,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_502": {
+        "life_514": {
           "opcode": "data_variable",
           "next": null,
-          "parent": "life_501",
+          "parent": "life_513",
           "inputs": {},
           "fields": {
             "VARIABLE": [
@@ -9843,42 +10060,42 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_503": {
+        "life_515": {
           "opcode": "operator_not",
           "next": null,
-          "parent": "life_500",
+          "parent": "life_512",
           "inputs": {
             "OPERAND": [
               2,
-              "life_504"
+              "life_516"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_504": {
+        "life_516": {
           "opcode": "operator_gt",
           "next": null,
-          "parent": "life_503",
+          "parent": "life_515",
           "inputs": {
             "OPERAND1": [
               2,
-              "life_505"
+              "life_517"
             ],
             "OPERAND2": [
               2,
-              "life_507"
+              "life_519"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_505": {
+        "life_517": {
           "opcode": "operator_divide",
           "next": null,
-          "parent": "life_504",
+          "parent": "life_516",
           "inputs": {
             "NUM1": [
               1,
@@ -9889,17 +10106,17 @@
             ],
             "NUM2": [
               2,
-              "life_506"
+              "life_518"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_506": {
+        "life_518": {
           "opcode": "data_variable",
           "next": null,
-          "parent": "life_505",
+          "parent": "life_517",
           "inputs": {},
           "fields": {
             "VARIABLE": [
@@ -9910,37 +10127,37 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_507": {
+        "life_519": {
           "opcode": "operator_subtract",
           "next": null,
-          "parent": "life_504",
+          "parent": "life_516",
           "inputs": {
             "NUM1": [
               2,
-              "life_508"
+              "life_520"
             ],
             "NUM2": [
               2,
-              "life_509"
+              "life_521"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_508": {
+        "life_520": {
           "opcode": "sensing_timer",
           "next": null,
-          "parent": "life_507",
+          "parent": "life_519",
           "inputs": {},
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_509": {
+        "life_521": {
           "opcode": "data_variable",
           "next": null,
-          "parent": "life_507",
+          "parent": "life_519",
           "inputs": {},
           "fields": {
             "VARIABLE": [
@@ -9951,10 +10168,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_510": {
+        "life_522": {
           "opcode": "data_setvariableto",
-          "next": "life_511",
-          "parent": "life_499",
+          "next": "life_523",
+          "parent": "life_511",
           "inputs": {
             "VALUE": [
               1,
@@ -9973,10 +10190,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_511": {
+        "life_523": {
           "opcode": "procedures_call",
-          "next": "life_512",
-          "parent": "life_510",
+          "next": "life_524",
+          "parent": "life_522",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -9989,10 +10206,10 @@
             "warp": "true"
           }
         },
-        "life_512": {
+        "life_524": {
           "opcode": "procedures_call",
-          "next": "life_513",
-          "parent": "life_511",
+          "next": "life_525",
+          "parent": "life_523",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10005,10 +10222,10 @@
             "warp": "true"
           }
         },
-        "life_513": {
+        "life_525": {
           "opcode": "procedures_call",
-          "next": "life_514",
-          "parent": "life_512",
+          "next": "life_526",
+          "parent": "life_524",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10021,10 +10238,10 @@
             "warp": "true"
           }
         },
-        "life_514": {
+        "life_526": {
           "opcode": "procedures_call",
-          "next": "life_515",
-          "parent": "life_513",
+          "next": "life_527",
+          "parent": "life_525",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10037,10 +10254,10 @@
             "warp": "true"
           }
         },
-        "life_515": {
+        "life_527": {
           "opcode": "event_broadcastandwait",
-          "next": "life_516",
-          "parent": "life_514",
+          "next": "life_528",
+          "parent": "life_526",
           "inputs": {
             "BROADCAST_INPUT": [
               1,
@@ -10055,14 +10272,14 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_516": {
+        "life_528": {
           "opcode": "data_setvariableto",
-          "next": "life_518",
-          "parent": "life_515",
+          "next": "life_530",
+          "parent": "life_527",
           "inputs": {
             "VALUE": [
               2,
-              "life_517"
+              "life_529"
             ]
           },
           "fields": {
@@ -10074,19 +10291,19 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_517": {
+        "life_529": {
           "opcode": "sensing_timer",
           "next": null,
-          "parent": "life_516",
+          "parent": "life_528",
           "inputs": {},
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_518": {
+        "life_530": {
           "opcode": "data_setvariableto",
           "next": null,
-          "parent": "life_516",
+          "parent": "life_528",
           "inputs": {
             "VALUE": [
               1,
@@ -10105,7 +10322,7 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_519": {
+        "life_531": {
           "opcode": "control_wait",
           "next": null,
           "parent": "life_436",
@@ -10122,9 +10339,9 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_520": {
+        "life_532": {
           "opcode": "event_whenbroadcastreceived",
-          "next": "life_521",
+          "next": "life_533",
           "parent": null,
           "inputs": {},
           "fields": {
@@ -10138,10 +10355,10 @@
           "x": 600,
           "y": 1300
         },
-        "life_521": {
+        "life_533": {
           "opcode": "procedures_call",
-          "next": "life_522",
-          "parent": "life_520",
+          "next": "life_534",
+          "parent": "life_532",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10154,10 +10371,10 @@
             "warp": "true"
           }
         },
-        "life_522": {
+        "life_534": {
           "opcode": "procedures_call",
-          "next": "life_523",
-          "parent": "life_521",
+          "next": "life_535",
+          "parent": "life_533",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10170,10 +10387,10 @@
             "warp": "true"
           }
         },
-        "life_523": {
+        "life_535": {
           "opcode": "procedures_call",
-          "next": "life_524",
-          "parent": "life_522",
+          "next": "life_536",
+          "parent": "life_534",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10186,10 +10403,10 @@
             "warp": "true"
           }
         },
-        "life_524": {
+        "life_536": {
           "opcode": "procedures_call",
-          "next": "life_525",
-          "parent": "life_523",
+          "next": "life_537",
+          "parent": "life_535",
           "inputs": {},
           "fields": {},
           "shadow": false,
@@ -10202,10 +10419,10 @@
             "warp": "true"
           }
         },
-        "life_525": {
+        "life_537": {
           "opcode": "event_broadcastandwait",
-          "next": "life_526",
-          "parent": "life_524",
+          "next": "life_538",
+          "parent": "life_536",
           "inputs": {
             "BROADCAST_INPUT": [
               1,
@@ -10220,10 +10437,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_526": {
+        "life_538": {
           "opcode": "data_setvariableto",
           "next": null,
-          "parent": "life_525",
+          "parent": "life_537",
           "inputs": {
             "VALUE": [
               1,
@@ -10242,9 +10459,9 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_527": {
+        "life_539": {
           "opcode": "event_whenkeypressed",
-          "next": "life_528",
+          "next": "life_540",
           "parent": null,
           "inputs": {},
           "fields": {
@@ -10258,200 +10475,34 @@
           "x": 1300,
           "y": 1300
         },
-        "life_528": {
+        "life_540": {
           "opcode": "control_if",
           "next": null,
-          "parent": "life_527",
+          "parent": "life_539",
           "inputs": {
             "CONDITION": [
               2,
-              "life_529"
+              "life_541"
             ],
             "SUBSTACK": [
               2,
-              "life_534"
+              "life_546"
             ]
           },
           "fields": {},
           "shadow": false,
           "topLevel": false
         },
-        "life_529": {
+        "life_541": {
           "opcode": "operator_and",
           "next": null,
-          "parent": "life_528",
+          "parent": "life_540",
           "inputs": {
             "OPERAND1": [
               2,
-              "life_530"
+              "life_542"
             ],
             "OPERAND2": [
-              2,
-              "life_532"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_530": {
-          "opcode": "operator_equals",
-          "next": null,
-          "parent": "life_529",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_531"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_531": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_530",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "忙碌",
-              "v_忙碌"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_532": {
-          "opcode": "operator_equals",
-          "next": null,
-          "parent": "life_529",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_533"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_533": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_532",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "视图",
-              "v_视图"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_534": {
-          "opcode": "data_setvariableto",
-          "next": "life_535",
-          "parent": "life_528",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "1"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "忙碌",
-              "v_忙碌"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_535": {
-          "opcode": "data_setvariableto",
-          "next": "life_536",
-          "parent": "life_534",
-          "inputs": {
-            "VALUE": [
-              1,
-              [
-                4,
-                "1"
-              ]
-            ]
-          },
-          "fields": {
-            "VARIABLE": [
-              "动作",
-              "v_动作"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_536": {
-          "opcode": "event_broadcastandwait",
-          "next": null,
-          "parent": "life_535",
-          "inputs": {
-            "BROADCAST_INPUT": [
-              1,
-              [
-                11,
-                "按钮",
-                "msg_按钮"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_537": {
-          "opcode": "event_whenkeypressed",
-          "next": "life_538",
-          "parent": null,
-          "inputs": {},
-          "fields": {
-            "KEY_OPTION": [
-              "n",
-              null
-            ]
-          },
-          "shadow": false,
-          "topLevel": true,
-          "x": 1600,
-          "y": 1300
-        },
-        "life_538": {
-          "opcode": "control_if",
-          "next": null,
-          "parent": "life_537",
-          "inputs": {
-            "CONDITION": [
-              2,
-              "life_539"
-            ],
-            "SUBSTACK": [
               2,
               "life_544"
             ]
@@ -10460,63 +10511,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_539": {
-          "opcode": "operator_and",
-          "next": null,
-          "parent": "life_538",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_540"
-            ],
-            "OPERAND2": [
-              2,
-              "life_542"
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_540": {
-          "opcode": "operator_equals",
-          "next": null,
-          "parent": "life_539",
-          "inputs": {
-            "OPERAND1": [
-              2,
-              "life_541"
-            ],
-            "OPERAND2": [
-              1,
-              [
-                4,
-                "0"
-              ]
-            ]
-          },
-          "fields": {},
-          "shadow": false,
-          "topLevel": false
-        },
-        "life_541": {
-          "opcode": "data_variable",
-          "next": null,
-          "parent": "life_540",
-          "inputs": {},
-          "fields": {
-            "VARIABLE": [
-              "忙碌",
-              "v_忙碌"
-            ]
-          },
-          "shadow": false,
-          "topLevel": false
-        },
         "life_542": {
           "opcode": "operator_equals",
           "next": null,
-          "parent": "life_539",
+          "parent": "life_541",
           "inputs": {
             "OPERAND1": [
               2,
@@ -10541,6 +10539,41 @@
           "inputs": {},
           "fields": {
             "VARIABLE": [
+              "忙碌",
+              "v_忙碌"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_544": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "life_541",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_545"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_545": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_544",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
               "视图",
               "v_视图"
             ]
@@ -10548,10 +10581,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_544": {
+        "life_546": {
           "opcode": "data_setvariableto",
-          "next": "life_545",
-          "parent": "life_538",
+          "next": "life_547",
+          "parent": "life_540",
           "inputs": {
             "VALUE": [
               1,
@@ -10570,10 +10603,194 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_545": {
+        "life_547": {
           "opcode": "data_setvariableto",
-          "next": "life_546",
-          "parent": "life_544",
+          "next": "life_548",
+          "parent": "life_546",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "动作",
+              "v_动作"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_548": {
+          "opcode": "event_broadcastandwait",
+          "next": null,
+          "parent": "life_547",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              [
+                11,
+                "按钮",
+                "msg_按钮"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_549": {
+          "opcode": "event_whenkeypressed",
+          "next": "life_550",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "n",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1600,
+          "y": 1300
+        },
+        "life_550": {
+          "opcode": "control_if",
+          "next": null,
+          "parent": "life_549",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "life_551"
+            ],
+            "SUBSTACK": [
+              2,
+              "life_556"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_551": {
+          "opcode": "operator_and",
+          "next": null,
+          "parent": "life_550",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_552"
+            ],
+            "OPERAND2": [
+              2,
+              "life_554"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_552": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "life_551",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_553"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_553": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_552",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "忙碌",
+              "v_忙碌"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_554": {
+          "opcode": "operator_equals",
+          "next": null,
+          "parent": "life_551",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "life_555"
+            ],
+            "OPERAND2": [
+              1,
+              [
+                4,
+                "0"
+              ]
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_555": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "life_554",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "视图",
+              "v_视图"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_556": {
+          "opcode": "data_setvariableto",
+          "next": "life_557",
+          "parent": "life_550",
+          "inputs": {
+            "VALUE": [
+              1,
+              [
+                4,
+                "1"
+              ]
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "忙碌",
+              "v_忙碌"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false
+        },
+        "life_557": {
+          "opcode": "data_setvariableto",
+          "next": "life_558",
+          "parent": "life_556",
           "inputs": {
             "VALUE": [
               1,
@@ -10592,10 +10809,10 @@
           "shadow": false,
           "topLevel": false
         },
-        "life_546": {
+        "life_558": {
           "opcode": "event_broadcastandwait",
           "next": null,
-          "parent": "life_545",
+          "parent": "life_557",
           "inputs": {
             "BROADCAST_INPUT": [
               1,
