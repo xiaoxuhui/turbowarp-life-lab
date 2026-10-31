@@ -14,7 +14,7 @@ const X=id=>add(-104,mul(mod(sub(id,1),20),16));
 const Y=id=>sub(88,mul(math('floor',div(sub(id,1),20)),16));
 const goto=(x,y)=>cmd('motion_gotoxy',{X:x,Y:y});
 const blank=()=>[clear('cells'),repeat(N,[push('cells',0)])];
-const vars={代数:0,活细胞:5,规则:'S23/B3/C2',B:8,S:12,C:2,PB:8,PS:12,PC:2,环绕:0,速度:3,运行:0,视图:0,忙碌:0,动作:0,时刻:0,清空时刻:-10,拖画:0,笔值:1,上格:0,格:0,i:0,j:0,r:0,col:0,dx:0,dy:0,nr:0,nc:0,邻居:0,当前:0,结果:0,ruleB:'',ruleS:'',已建格子:0};
+const vars={代数:0,活细胞:5,规则:'S23/B3/C2',B:8,S:12,C:2,PB:8,PS:12,PC:2,环绕:0,速度:3,运行:0,视图:0,忙碌:0,动作:0,时刻:0,清空时刻:-10,拖画:0,笔值:1,上格:0,格:0,i:0,j:0,r:0,col:0,dx:0,dy:0,nr:0,nc:0,邻居:0,当前:0,结果:0,ruleB:'',ruleS:'',已建格子:0,启动序号:0};
 c.define('更新规则文本',[],[
   set('ruleS',''),set('ruleB',''),set('i',0),repeat(9,[iff(eq(bit(V('S'),V('i')),1),[set('ruleS',join(V('ruleS'),V('i')))]),iff(eq(bit(V('B'),V('i')),1),[set('ruleB',join(V('ruleB'),V('i')))]),change('i',1)]),
   set('规则',join('S',join(V('ruleS'),join('/B',join(V('ruleB'),join('/C',V('C')))))))
@@ -72,7 +72,7 @@ c.define('显示面板',[],[
 const render=()=>[c.call('统计细胞'),c.call('更新规则文本'),c.call('显示面板'),broadcast('重绘')];
 const mouseInside=and(and(gt(expr('sensing_mousex'),-112),gt(208,expr('sensing_mousex'))),and(gt(expr('sensing_mousey'),-128),gt(96,expr('sensing_mousey'))));
 c.hat('event_whenflagclicked',{},[
-  cmd('looks_hide'),set('忙碌',1),set('运行',0),set('视图',0),set('清空时刻',-10),set('拖画',0),set('上格',0),set('已建格子',0),
+  cmd('looks_hide'),set('忙碌',1),change('启动序号',1),set('运行',0),set('视图',0),set('清空时刻',-10),set('拖画',0),set('上格',0),set('已建格子',0),
   iff(not(eq(length('cells'),N)),[c.call('载入图案',1)]),broadcast('建格子'),wait(0),...render(),set('忙碌',0),
   forever([
     iff(and(eq(V('忙碌'),0),eq(V('视图'),0)),[

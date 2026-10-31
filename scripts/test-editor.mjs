@@ -24,7 +24,14 @@ async function cell(id){const p=xy(id);await point(p.x,p.y);}
 async function clearBoard(){await tool('清空');await tool('清空');assert((await state()).cells.every(v=>v===0));}
 async function one(){const before=await state();await tool('单步');const after=await state();try{assert.equal(after.vars.代数,before.vars.代数+1,'single-step generation must advance exactly once');assert.deepEqual(after.cells,step(before.cells,{B:Number(before.vars.B),S:Number(before.vars.S),C:Number(before.vars.C),wrap:before.vars.环绕===1}),'native one generation vs independent model');}catch(e){report.states.push({label:'failed step before',...before},{label:'failed step after',...after});throw e;}return after;}
 async function fixture(cells){await page.evaluate(b=>{const v=vm.runtime.getTargetForStage().variables;v.l_cells.value=b;v.v_代数.value=0;},cells);await tool('速度');}
-async function initialize(){await page.locator('img[class*="green-flag_green-flag"]').click();await page.waitForFunction(()=>vm.runtime.getTargetForStage().variables.v_已建格子.value===280);await idle();await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));}
+async function initialize(){
+  const previous=await page.evaluate(()=>Number(vm.runtime.getTargetForStage().variables.v_启动序号.value));
+  await page.locator('img[class*="green-flag_green-flag"]').click();
+  // A saved project already contains the previous ready count and idle value.
+  // Require a new boot sequence before trusting those values for this load.
+  await page.waitForFunction(previous=>{const v=vm.runtime.getTargetForStage().variables;return Number(v.v_启动序号.value)>previous&&Number(v.v_已建格子.value)===280&&Number(v.v_忙碌.value)===0;},previous,{timeout:30000});
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await idle();
+}
 try{
   await page.goto('https://turbowarp.org/editor',{waitUntil:'domcontentloaded',timeout:90000});await page.waitForFunction(()=>window.vm?.runtime?.targets.some(t=>!t.isStage&&t.getCostumes().length>0));await page.locator('img[class*="sprite-selector-item_sprite-image"]').first().waitFor({state:'visible'});
   const b64=(await fs.readFile(path.join(root,'dist/life-lab.sb3'))).toString('base64');
