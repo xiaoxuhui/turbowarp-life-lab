@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "usedForAcceptance": false,
+  "reason": "Supplementary native-tab expectation did not match the observed board. Retained as a failed attempt; real keyboard acceptance is verified in the independent SDK browser.",
+  "evidence": "### Error\nError: {\"generation\":106,\"actual\":[4,5,6,7,8,10,12,13,15,20,21,24,26,29,32,35,40,46,48,51,52,54,55,66,68,69,70,72,73,76,77,78,79,80,81,82,83,84,85,87,90,91,93,94,95,97,99,100,102,104,106,107,109,111,112,113,115,116,118,120,124,125,127,128,130,132,134,136,137,138,139,141,142,143,144,146,149,150,151,153,156,159,160,161,163,165,166,167,170,172,174,176,177,179,180,185,187,189,191,192,193,195,196,198,203,205,206,207,208,209,210,213,214,216,217,219,222,225,228,230,234,235,237,248,250,251,253,257,265,268,269,271,273,274,275,276,277],\"rule\":\"S345/B2/C3\",\"compileErrors\":[]}\n    at eval (eval at <anonymous> (eval at evaluate (:368:30)), <anonymous>:1:522)\n    at async eval (eval at evaluate (:368:30), <anonymous>:4:30)\n    at async <anonymous>:394:30"
+}

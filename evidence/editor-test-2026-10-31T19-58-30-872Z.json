@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-10-31T19:58:30.872Z",
+  "checks": [],
+  "states": [],
+  "errors": [],
+  "console": [],
+  "status": "FAIL",
+  "error": {
+    "message": "page.waitForFunction: Timeout 20000ms exceeded.",
+    "stack": "page.waitForFunction: Timeout 20000ms exceeded.\n    at idle (D:\\soft\\turbowarp-life-lab\\scripts\\test-editor.mjs:17:34)\n    at initialize (D:\\soft\\turbowarp-life-lab\\scripts\\test-editor.mjs:25:193)\n    at async file:///D:/soft/turbowarp-life-lab/scripts/test-editor.mjs:30:3"
+  },
+  "finishedAt": "2026-10-31T19:59:09.264Z"
+}
