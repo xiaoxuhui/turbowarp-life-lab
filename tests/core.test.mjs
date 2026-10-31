@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {W,H,N,step,nextState,pattern,mask,ruleText,xy} from '../src/core.mjs';
+test('SBC notation sorts and supports empty masks',()=>{assert.equal(ruleText(),'S23/B3/C2');assert.equal(ruleText(mask('63'),mask('32'),8),'S23/B36/C8');assert.equal(ruleText(0,0,3),'S/B/C3');});
+test('all 512 masks and neighbor counts in both alive/dead states',()=>{for(let m=0;m<512;m++)for(let n=0;n<=8;n++){const expected=Math.floor(m/(2**n))%2;assert.equal(nextState(0,n,m,0,2),expected);assert.equal(nextState(1,n,0,m,2),expected);}});
+test('all 2-8-state decay and live-only neighbor counting',()=>{for(let C=2;C<=8;C++){assert.equal(nextState(1,0,0,0,C),C===2?0:2);for(let s=2;s<C;s++)assert.equal(nextState(s,3,511,511,C),s===C-1?0:s+1);}const a=Array(N).fill(0);a[21]=2;a[22]=2;assert.equal(step(a,{B:mask('2'),S:0,C:3})[1],0);});
+test('synchronous blinker, toad and still life',()=>{for(const name of ['闪烁器','蟾蜍'])assert.deepEqual(step(step(pattern(name))),pattern(name));const b=Array(N).fill(0);for(const i of [63,64,83,84])b[i]=1;assert.deepEqual(step(b),b);});
+test('glider shifts diagonally after four steps',()=>{let b=pattern('滑翔机');for(let i=0;i<4;i++)b=step(b);assert.deepEqual(b,pattern('滑翔机',9,6));});
+test('finite B0 births on empty board, empty S/B extinguishes',()=>{assert(step(Array(N).fill(0),{B:1,S:0}).every(v=>v===1));assert(step(pattern('滑翔机'),{B:0,S:0}).every(v=>v===0));});
+test('fixed and wrapped edges do not read row-adjacent cells',()=>{const a=Array(N).fill(0);for(const i of [W-1,2*W-1,0])a[i]=1;assert.notDeepEqual(step(a),step(a,{wrap:true}));assert.equal(step(a)[W],0);assert.equal(step(a,{wrap:true})[W],1);});
+test('all grid coordinates bounded and unique',()=>{const a=Array.from({length:N},(_,i)=>xy(i));assert.equal(new Set(a.map(JSON.stringify)).size,N);assert.equal(H,14);assert(a.every(p=>p.x>=-104&&p.x<=200&&p.y<=88&&p.y>=-120));});
