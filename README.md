@@ -49,4 +49,10 @@ node scripts/test-editor.mjs
 
 没有修改系统 PATH、注册表或 Codex 配置。Windows 执行沙箱内可能禁止项目链接和浏览器启动；经工具授权后测试仍保留 Chromium 沙箱。运行作品本身只需载入 SB3，无需 Node。
 
-本版没有无限地图、缩放、JSON/RLE 导入或浏览器自动存档；无需后台服务。源代码和过程有本地 Git 提交，可回退旧提交或重新加载原 SB3；删除本项目不影响其他作品。未推送、打标签或发布。
+原生作品没有无限地图、缩放或 JSON/RLE 导入；无需后台服务。源码公开在 <https://github.com/xiaoxuhui/turbowarp-life-lab>，原 SB3 与编辑器工作流保留。
+
+## 离线网页与大厅
+
+`web-dist/index.html` 使用固定版本 TurboWarp Packager 封装现有 SB3，运行不依赖网络。网页在作品处于完整状态时自动保存棋盘、规则、代数及速度；重新进入时恢复并暂停。损坏存档不会自动覆盖，可先备份再从初始作品重新开始。
+
+安装锁定依赖后，`node scripts/build-web.mjs` 生成网页并校验原 SB3 摘要；`node --test tests/*.test.mjs` 运行单元测试，`node scripts/test-web.cjs` 使用相邻 Bridge 的 Playwright 和浏览器运行交互测试，也可用 `TURBOWARP_BRIDGE` 与 `CHROME_PATH` 指定路径。自有代码采用 MIT 许可，打包运行时保留第三方许可，详见 `web-dist/THIRD_PARTY_NOTICES.md`。大厅接入按独立资源发行，不制作独立 APK。
