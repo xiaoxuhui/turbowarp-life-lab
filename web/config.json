@@ -1,0 +1,8 @@
+{
+  "id": "turbowarp-life-lab",
+  "title": "生命规则实验室",
+  "kind": "life",
+  "clones": 280,
+  "version": "0.1.0",
+  "project": "dist/life-lab.sb3"
+}
